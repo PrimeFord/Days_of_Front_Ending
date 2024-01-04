@@ -96,4 +96,80 @@
   font-size: 1rem;
   margin: 0.5rem;
   line-height: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  #root {
+    height: auto;
+    padding-top: 1rem;
+  }
+  #wrapper {
+    padding: 1rem;
+  }
+  #wrapper p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  #wrapper #box {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+  #wrapper .editorWrap {
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 1rem 1rem 0 0;
+  }
+  #wrapper .editorWrap p {
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  #wrapper .editorWrap #editor {
+    height: 20rem;
+    padding: 1rem;
+    outline: none;
+    border: none;
+  }
+  #wrapper .previewWrap {
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 0 0 1rem 1rem;
+  }
+  #wrapper .previewWrap p {
+    border-radius: 0rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  #wrapper .previewWrap #preview {
+    height: 20rem;
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  #wrapper .previewWrap #preview p {
+    padding: 0.25rem;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  #wrapper .previewWrap #preview img {
+    width: 50%;
+  }
+  #wrapper .previewWrap #preview code {
+    background-color: rgba(255, 222, 241, 0.6980392157);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  #wrapper .previewWrap #preview pre {
+    background-color: rgba(255, 222, 241, 0.6980392157);
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+    line-height: 1.5rem;
+  }
 }/*# sourceMappingURL=style.css.map */

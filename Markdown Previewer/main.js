@@ -30,8 +30,7 @@ function App() {
       <div id="box">
         <div className="editorWrap">
           <p>
-            {/* <i fas fa-pen></i> */}
-            Editor
+            <i class="fas fa-edit"></i> Editor
           </p>
           <textarea
             id="editor"
@@ -45,7 +44,7 @@ function App() {
         </div>
         <div class="previewWrap">
           <p>
-            {/* <i fas fa-pen></i> */}
+            <i class="fa-solid fa-display"></i>
             Previewer
           </p>
           <Preview markdown={text} />
@@ -60,7 +59,7 @@ function Preview({ markdown }) {
     <div
       id="preview"
       dangerouslySetInnerHTML={{
-        __html: marked(markdown, { renderer: renderer }),
+        __html: marked.parse(markdown, { renderer: renderer }),
       }}
     ></div>
   );

@@ -104,3 +104,79 @@ $primary-color: #c1c1c1;
     }
   }
 }
+
+@media (max-width: 640px) {
+  #root {
+    height: auto;
+    padding-top: 1rem;
+  }
+  #wrapper {
+    padding: 1rem;
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    #box {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 1rem;
+    }
+    .editorWrap {
+      width: 95%;
+      border: 2px solid black;
+      border-radius: 1rem 1rem 0 0;
+      p {
+        border-radius: 1rem 1rem 0 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      #editor {
+        height: 20rem;
+        padding: 1rem;
+        outline: none;
+        border: none;
+      }
+    }
+    .previewWrap {
+      width: 95%;
+      border: 2px solid black;
+      border-radius: 0 0 1rem 1rem;
+      p {
+        border-radius: 0rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      #preview {
+        height: 20rem;
+        padding: 1rem;
+        border-radius: 0 0 1rem 1rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        p {
+          padding: 0.25rem;
+          background-color: transparent;
+          border-radius: 0;
+          font-size: 1rem;
+          font-weight: normal;
+        }
+        img {
+          width: 50%;
+        }
+        code {
+          background-color: #ffdef1b2;
+          padding: 0.5rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 1rem;
+          font-weight: 500;
+        }
+        pre {
+          background-color: #ffdef1b2;
+          padding: 0.5rem 0.75rem;
+          font-size: 1rem;
+          margin: 0.5rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}
