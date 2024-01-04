@@ -1,8 +1,12 @@
 // !! IMPORTANT README:
-import React from "https://esm.sh/react@17.0.1";
-import ReactDOM from "https://esm.sh/react-dom@17.0.1";
-import { marked } from "https://esm.sh/marked";
-import { createRoot } from "react-dom/client";
+// const React = require("https://esm.sh/react@17.0.1");
+// const ReactDOM = require("https://esm.sh/react-dom@17.0.1");
+// const marked = require("https://esm.sh/marked");
+
+// import React from "https://esm.sh/react@17.0.1";
+// import ReactDOM from "https://esm.sh/react-dom@17.0.1";
+// import { marked } from "https://esm.sh/marked";
+// import { createRoot } from "react-dom/client";
 
 marked.setOptions({
   breaks: true,
@@ -16,6 +20,7 @@ const defaultText =
 function App() {
   const [text, setText] = React.useState(defaultText);
   return (
+    // <h1>MarkDown Code Preview</h1>
     <div id="wrapper">
       <h1>MarkDown Code Preview</h1>
       <p>
@@ -62,6 +67,7 @@ function Preview({ markdown }) {
 }
 
 const container = document.getElementById("root");
-const root = createRoot(container);
+const root = ReactDOM.createRoot(container);
 root.render(<App />);
+// ReactDOM.render(<App />, document.getElementById("app"));
 console.log("mww");
