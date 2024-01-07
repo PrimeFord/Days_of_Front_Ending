@@ -1,0 +1,14 @@
+$primary-color: #f1f1f1;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  background-color: $primary-color;
+}
+body {
+  height: 100vh;
+  width: 100%;
+}
