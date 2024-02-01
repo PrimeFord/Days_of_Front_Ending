@@ -1,4 +1,4 @@
-$primary-color: #f1f1f1;
+$primary-color: #b12727;
 
 * {
   box-sizing: border-box;
@@ -8,10 +8,15 @@ $primary-color: #f1f1f1;
 :root {
   background-color: $primary-color;
 }
-body {
+#root {
   height: 100vh;
   width: 100%;
+  // background-color: $primary-color;
   display: flex;
   justify-content: center;
   align-items: center;
+  #drum-machine {
+    height: 50%;
+    width: 60%;
+  }
 }

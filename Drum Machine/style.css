@@ -1,1 +1,21 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  background-color: #b12727;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root #drum-machine {
+  height: 50%;
+  width: 60%;
+}/*# sourceMappingURL=style.css.map */
