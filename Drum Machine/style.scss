@@ -1,4 +1,4 @@
-$primary-color: #b12727;
+$primary-color: #f1f1f1;
 
 * {
   box-sizing: border-box;
@@ -16,7 +16,50 @@ $primary-color: #b12727;
   justify-content: center;
   align-items: center;
   #drum-machine {
-    height: 50%;
-    width: 60%;
+    // height: 50%;
+    // width: 60%;
+    padding: 1rem;
+    background-color: #c1c1c1;
+    border: 1px solid gray;
+    #display {
+      width: 7rem;
+      height: 2rem;
+      padding: 0.5rem;
+      background: $primary-color;
+      border: 1px solid gray;
+      text-align: center;
+      margin: auto;
+      margin-bottom: 1rem;
+    }
+    #box {
+      height: 20rem;
+      width: 20rem;
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media (max: 640px) {
+  #root {
+    height: 100vh;
+    width: 100%;
+    #drum-machine {
+      height: 50%;
+      width: 60%;
+      #display {
+        width: 7rem;
+        height: 2rem;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      #box {
+        height: 20rem;
+        width: 20rem;
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   }
 }

@@ -39,7 +39,7 @@ function App() {
       url: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
     },
     {
-      id: "Kick_n_",
+      id: "Kick_n_Hat",
       keyCode: 90,
       keyTrigger: "Z",
       url: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
@@ -66,21 +66,30 @@ function App() {
   }, []);
   const handleKeyPress = (e) => {
     keyPad.map((key) => {
-      if (e.keyCode === key) {
-        console.log(key);
+      if (e.keyCode === key.keyCode) {
+        playSound(key.keyTrigger);
       }
     });
   };
+
+  const display = document.getElementById("display");
   const playSound = (keyId) => {
     const audioPad = document.getElementById(keyId);
     audioPad.currentTime = 0;
     audioPad.play();
-    console.log(keyId);
+    keyPad.map((key) => {
+      if (keyId === key.keyTrigger) {
+        $("#display").text(key.id);
+        document.getElementById(key.id).style.backgroundColor = "#ecc30d";
+      } else {
+        document.getElementById(key.id).style.backgroundColor = "";
+      }
+    });
   };
 
   return (
     <div id="drum-machine">
-      <div id="display">BBBB</div>
+      <div id="display"></div>
       <div id="box">
         {keyPad.map((key, id) => (
           <button

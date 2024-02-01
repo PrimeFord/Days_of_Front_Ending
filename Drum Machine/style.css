@@ -5,7 +5,7 @@
 }
 
 :root {
-  background-color: #b12727;
+  background-color: #f1f1f1;
 }
 
 #root {
@@ -16,6 +16,48 @@
   align-items: center;
 }
 #root #drum-machine {
-  height: 50%;
-  width: 60%;
+  padding: 1rem;
+  background-color: #c1c1c1;
+  border: 1px solid gray;
+}
+#root #drum-machine #display {
+  width: 7rem;
+  height: 2rem;
+  padding: 0.5rem;
+  background: #f1f1f1;
+  border: 1px solid gray;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+#root #drum-machine #box {
+  height: 20rem;
+  width: 20rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max: 640px) {
+  #root {
+    height: 100vh;
+    width: 100%;
+  }
+  #root #drum-machine {
+    height: 50%;
+    width: 60%;
+  }
+  #root #drum-machine #display {
+    width: 7rem;
+    height: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  #root #drum-machine #box {
+    height: 20rem;
+    width: 20rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }/*# sourceMappingURL=style.css.map */
