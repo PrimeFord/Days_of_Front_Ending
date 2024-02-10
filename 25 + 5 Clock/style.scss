@@ -1,0 +1,64 @@
+$primary-color: #f1f1f1;
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //   background: #ffffff;
+}
+#root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #board {
+    width: 40%;
+    height: 60%;
+    background: rgb(162, 162, 255);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    #title {
+      font-size: 1.5rem;
+    }
+    #label {
+      display: flex;
+      width: 25rem;
+      height: 5rem;
+      margin: auto;
+      justify-content: space-around;
+      #break-label {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      #session-label {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+    #display {
+      height: 15rem;
+      #timer-label {
+        font-size: 1.2rem;
+      }
+      #time-left {
+        font-size: 3rem;
+      }
+    }
+    #control {
+      margin: auto;
+      display: flex;
+      width: 7rem;
+      justify-content: space-between;
+      #start_stop {
+      }
+      #reset {
+      }
+    }
+  }
+}
