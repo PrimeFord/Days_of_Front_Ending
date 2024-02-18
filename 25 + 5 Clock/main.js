@@ -1,4 +1,13 @@
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { createStore } from "redux";
+import { decrease, increase, pause_play, reset } from "./redux/action";
+import { clockReducer } from "./redux/reducers";
+const store = createStore(clockReducer);
+
 function App() {
+  const dispatch = useDispatch();
+  const time = useSelector((state) => state);
+
   return (
     <div id="board">
       <div id="title">25 + 5 Clock</div>
@@ -6,11 +15,21 @@ function App() {
         <div>
           Break Length
           <div id="break-label">
-            <button id="break-decrement">
+            <button
+              id="break-decrement"
+              onClick={() => {
+                dispatch(decrease());
+              }}
+            >
               <i class="fa fa-arrow-down"></i>
             </button>
             <div id="break-length">5</div>
-            <button id="break-increment">
+            <button
+              id="break-increment"
+              onClick={() => {
+                dispatch(increase());
+              }}
+            >
               <i class="fa fa-arrow-up"></i>
             </button>
           </div>
@@ -18,11 +37,21 @@ function App() {
         <div>
           Session Length
           <div id="session-label">
-            <button id="session-decrement">
+            <button
+              id="session-decrement"
+              onClick={() => {
+                dispatch(decrease());
+              }}
+            >
               <i class="fa fa-arrow-down"></i>
             </button>
             <div id="session-length">25</div>
-            <button id="session-increment">
+            <button
+              id="session-increment"
+              onClick={() => {
+                dispatch(increase());
+              }}
+            >
               <i class="fa fa-arrow-up"></i>
             </button>
           </div>
@@ -33,11 +62,21 @@ function App() {
         <div id="time-left">25:00</div>
       </div>
       <div id="control">
-        <button id="start_stop">
+        <button
+          id="start_stop"
+          onClick={() => {
+            dispatch(pause_play());
+          }}
+        >
           <i class="fa fa-play"></i>
           <i class="fa fa-pause"></i>
         </button>
-        <button id="reset">
+        <button
+          id="reset"
+          onClick={() => {
+            dispatch(reset());
+          }}
+        >
           <i class="fa fa-arrows-rotate"></i>
         </button>
       </div>
@@ -45,4 +84,8 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
