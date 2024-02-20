@@ -1,5 +1,5 @@
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { createStore } from "redux";
+import { Provider, useDispatch, useSelector } from "https://esm.sh/react-redux";
+import { createStore } from "https://esm.sh/redux";
 import { decrease, increase, pause_play, reset } from "./redux/action";
 import { clockReducer } from "./redux/reducers";
 const store = createStore(clockReducer);
