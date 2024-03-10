@@ -33,14 +33,11 @@ function App() {
   //   timerRunning: false,
   // });
 
-  const timer: DisplayState = useAppSelector((state) => {
-    state.timer;
-    setDisplay(state);
-  });
+  const timer: DisplayState = useAppSelector((state) => state.timer);
   const time = timer.time * 60;
   const breakTimer = useAppSelector((state) => state.breaker.value);
   const dispatch = useAppDispatch();
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(1500);
   useEffect(() => {
     let tick: number = time;
 
