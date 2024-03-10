@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { DisplayState } from "../../helper";
 
 // Define a type for the slice state
-interface TimerState {
-  value: number;
-}
+// interface TimerState {
+//   value: number;
+// }
 
 // Define the initial state using that type
-const initialState: TimerState = {
-  value: 25,
+const initialState: DisplayState = {
+  time: 25,
+  timeType: "Session",
+  timerRunning: false,
 };
 
 export const timerSlice = createSlice({
@@ -17,23 +20,23 @@ export const timerSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
-      state.value += 1;
+      state.time += 1;
     },
     decrement: (state) => {
-      state.value -= 1;
+      state.time -= 1;
     },
     pause_play: (state) => {
-      state.value;
+      state.timerRunning = !state.timerRunning;
     },
     reset: (state) => {
-      state.value = 25;
+      state.time = 25;
     },
   },
 });
 
 export const { increment, decrement, pause_play, reset } = timerSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
-export const selectTime = (state: RootState) => state.timer.value;
+export const selectTime = (state: RootState) => state.timer;
 
 export default timerSlice.reducer;
 

@@ -13,11 +13,11 @@ import {
   FaPlay,
   FaArrowRotateRight,
 } from "react-icons/fa6";
-// import { DisplayState } from "./helper";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { useState } from "react";
 import { decrease, increase } from "./features/timer/breakTimer";
-// import { DisplayState, formatTimer } from "./helper";
+import { DisplayState, formatTimer } from "./helper";
+import { useEffect } from "react";
 
 function App() {
   // const defaultSessionTime = 25;
@@ -33,11 +33,29 @@ function App() {
   //   timerRunning: false,
   // });
 
-  const timer: number = useAppSelector((state) => state.timer.value);
+  const timer: DisplayState = useAppSelector((state) => {
+    state.timer;
+    setDisplay(state);
+  });
+  const time = timer.time * 60;
   const breakTimer = useAppSelector((state) => state.breaker.value);
   const dispatch = useAppDispatch();
-  const [display, setDisplay] = useState(timer);
-  const handleChange = () => {};
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    let tick: number = time;
+
+    if (!timer.timerRunning) return;
+    if (timer.timerRunning) {
+      const interval = window.setInterval(() => {
+        console.log(tick);
+        tick--;
+        setDisplay(tick);
+      }, 1000);
+    }
+    return () => {
+      window.clearInterval(tick);
+    };
+  }, [timer.timerRunning]);
   return (
     <>
       <div id="board">
@@ -70,14 +88,18 @@ function App() {
             <div id="session-label">
               <button
                 id="session-decrement"
-                onClick={timer > 1 ? () => dispatch(decrement()) : () => null}
+                onClick={
+                  timer.time > 1 ? () => dispatch(decrement()) : () => null
+                }
               >
                 <FaArrowDown />
               </button>
-              <div id="session-length">{timer}</div>
+              <div id="session-length">{timer.time}</div>
               <button
                 id="session-increment"
-                onClick={timer < 60 ? () => dispatch(increment()) : () => null}
+                onClick={
+                  timer.time < 60 ? () => dispatch(increment()) : () => null
+                }
               >
                 <FaArrowUp />
               </button>
@@ -86,7 +108,7 @@ function App() {
         </div>
         <div id="display">
           <div id="timer-label">Session</div>
-          <div id="time-left">{display}</div>
+          <div id="time-left">{formatTimer(display)}</div>
         </div>
         <div id="control">
           <button id="start_stop" onClick={() => dispatch(pause_play())}>
